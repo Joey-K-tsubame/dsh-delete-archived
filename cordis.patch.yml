@@ -3,10 +3,11 @@
 # the two HTTP routes (/plugin/dsh-delete-archived/{list,delete}) and the
 # `delete_archived_conversation` agent tool. The `dsh.client` half adds the
 # delete entry to the sidebar's per-Session "..." menu (archived sessions only).
+#
+# This patch is intentionally static: it carries no `config`, so no Loader
+# expression (`!!js ...`) appears here. lib/entry.js resolves the session root
+# itself — `$DSH_HOME/sessions`, falling back to `~/.dsh/sessions` — which is
+# the same root the official session-persistence row uses (dshHomePath('sessions')).
 - insert:
     - id: archived-session-delete
       name: 'dsh-delete-archived'
-      config:
-        # Session JSONL root, matching the dsh-base row for
-        # session-persistence-jsonl (dshHomePath('sessions')).
-        root: !!js dshHomePath('sessions')
