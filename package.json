@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "description": "删除 DeepSeek Harness 中已归档的对话：侧边栏归档会话菜单的删除入口 + 供助手调用的工具",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Joey-K-tsubame/dsh-delete-archived.git"
+  },
   "type": "module",
   "main": "lib/entry.js",
   "icon": "./icon.svg",
@@ -34,10 +38,16 @@
     "icon.svg"
   ],
   "engines": {
+    "node": "^22.19.0 || >=24.0.0",
     "dsh": "^0.2.0-rc.2"
   },
   "dsh": {
     "manifestVersion": 1,
+    "compatibility": {
+      "dshReleases": {
+        "0.2.0-rc.2": "compatible"
+      }
+    },
     "bundle": {
       "patch": "./cordis.patch.yml"
     },
