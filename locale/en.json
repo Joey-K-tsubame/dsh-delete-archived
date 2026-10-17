@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Delete archived conversations",
+    "description": "Adds a delete entry to archived conversations in the sidebar and a delete_archived_conversation tool for the agent."
+  }
+}

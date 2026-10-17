@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "删除已归档对话",
+    "description": "在侧边栏为已归档会话增加删除入口，并提供 delete_archived_conversation 工具供助手调用。"
+  }
+}

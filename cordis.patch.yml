@@ -1,0 +1,12 @@
+# dsh-delete-archived bundle patch: inserts the host row into the profile.
+# The row resolves to this package's main entry (lib/entry.js), which registers
+# the two HTTP routes (/plugin/dsh-delete-archived/{list,delete}) and the
+# `delete_archived_conversation` agent tool. The `dsh.client` half adds the
+# delete entry to the sidebar's per-Session "..." menu (archived sessions only).
+- insert:
+    - id: archived-session-delete
+      name: 'dsh-delete-archived'
+      config:
+        # Session JSONL root, matching the dsh-base row for
+        # session-persistence-jsonl (dshHomePath('sessions')).
+        root: !!js dshHomePath('sessions')
