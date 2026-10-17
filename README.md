@@ -20,7 +20,9 @@ A [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) plugin to 
 ## Behavior notes
 
 - Only **archived** sessions can be deleted; archive a session first.
-- If the session is still loaded in memory, deletion is refused — restart the app and retry.
+- Deletion is serialized per session. Being still held by the host is not a reason to refuse:
+  archiving already stopped the agent and the host's `ArchivedSessionGate` refuses further steps,
+  so the log is no longer written; the response reports `heldAtDelete` as evidence.
 - The session-search index in this deployment is `:memory:`/`openAt: never`, so no index cleanup is
   needed; deployments that enable content search clean up the SQLite rows automatically on the next search.
 - Content-addressed image attachments may be shared across sessions and are intentionally not reference-counted.
