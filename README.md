@@ -17,6 +17,22 @@ A [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) plugin to 
 - **Client side** (`lib/client.js`) adds a "Delete conversation" entry to the per-session "..." menu
   in the sidebar, shown **only for archived sessions** (two-step confirm, inline error on refusal).
 
+## Difference from dsh-archived-chats
+
+The community index already lists `dsh-archived-chats`, which also lists and permanently
+removes archived conversations. This plugin does not re-implement that capability: the
+increment here is (a) a "Delete conversation" row in the sidebar's per-session "..." menu for
+archived sessions only, and (b) the model-callable `delete_archived_conversation` tool. If you
+only need bulk cleanup, `dsh-archived-chats` is the smaller dependency.
+
+## Destructive tool
+
+`delete_archived_conversation` is **model-invocable**: the assistant can call it without any
+second confirmation. It removes the session's JSONL directory and its workspace registry
+entries, and the deletion cannot be undone. The sidebar entry is the human-confirmed path
+(two-step confirm); treat the tool as an automation-level capability and keep it out of
+workflows you do not want deleting archived sessions on their own.
+
 ## Behavior notes
 
 - Only **archived** sessions can be deleted; archive a session first.
