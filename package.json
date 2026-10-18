@@ -1,6 +1,6 @@
 {
   "name": "dsh-delete-archived",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "删除 DeepSeek Harness 中已归档的对话：侧边栏归档会话菜单的删除入口 + 供助手调用的工具",
   "license": "MIT",
   "repository": {
@@ -39,13 +39,13 @@
   ],
   "engines": {
     "node": "^22.19.0 || >=24.0.0",
-    "dsh": "^0.2.0-rc.2"
+    "dsh": ">=0.2.0-rc.2-0 <0.3.0-0"
   },
   "dsh": {
     "manifestVersion": 1,
     "compatibility": {
       "dshReleases": {
-        "0.2.0-rc.2": "compatible"
+        "0.2.1-rc.2": "compatible"
       }
     },
     "bundle": {
